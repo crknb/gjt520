@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+ <audio id="audioDom" src="7170534431801838367.mp3"  loop="loop"></audio>
+<script>
+     const audio = document.getElementById('audioDom');
+     if (audio.paused) {
+      audio.play().catch(error => {
+        console.log('播放被浏览器阻止，需用户交互后触发');
+    });
+    } else {
+      console.log('已在播放中，无需重复操作');
+    }
+</script>
+</body>
+</html>

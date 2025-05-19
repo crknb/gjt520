@@ -36,17 +36,44 @@
 <body>
     <p>龚嘉婷</p>
     <canvas id="pinkboard"></canvas>
+    <audio
+        id="ppp"
+    autoplay="autoplay"
+    loop="loop"
+    preload="auto"
+    src="1.mp3">
+    </audio>
     <script>
-        var settings = {
-            particles: {
-                length: 600,  // 爱心的大小
-                duration: 3,  // 爱心扩散速度，越小速度越快
-                velocity: 100,  // 爱心扩散速度，越小速度越慢
-                effect: -0.75, // 爱心收缩效果，比如：1扩散，-2收缩
-                size: 32, // 爱心数量
-            },
-        };
-        (function () { var b = 0; var c = ["ms", "moz", "webkit", "o"]; for (var a = 0; a < c.length && !window.requestAnimationFrame; ++a) { window.requestAnimationFrame = window[c[a] + "RequestAnimationFrame"]; window.cancelAnimationFrame = window[c[a] + "CancelAnimationFrame"] || window[c[a] + "CancelRequestAnimationFrame"] } if (!window.requestAnimationFrame) { window.requestAnimationFrame = function (h, e) { var d = new Date().getTime(); var f = Math.max(0, 16 - (d - b)); var g = window.setTimeout(function () { h(d + f) }, f); b = d + f; return g } } if (!window.cancelAnimationFrame) { window.cancelAnimationFrame = function (d) { clearTimeout(d) } } }());
+
+    document.body.addEventListener('click', function(event) {
+    // 获取点击位置的X坐标
+    const clickX = event.clientX;
+
+    // 获取屏幕宽度
+    const screenWidth = window.innerWidth;
+
+    // 判断点击位置（左半屏/右半屏）
+    if (clickX < screenWidth / 2) {
+    // 左半屏点击跳转
+    window.location.href = 'index.html'; // 修改为你的左侧页面地址
+    } else {
+        // 右半屏点击跳转
+        window.location.href = 'lz.html'; // 修改为你的右侧页面地址
+    }
+    });
+
+    var settings = {
+    particles: {
+    length: 600, // 爱心的大小
+    duration: 3, // 爱心扩散速度，越小速度越快
+    velocity: 100, // 爱心扩散速度，越小速度越慢
+    effect: -0.75, // 爱心收缩效果，比如：1扩散，-2收缩
+    size: 32, // 爱心数量
+    },
+    };
+    (function () { var b = 0; var c = ["ms", "moz", "webkit", "o"]; for (var a = 0; a < c.length &&
+    !window.requestAnimationFrame; ++a) { window.requestAnimationFrame = window[c[a] + "RequestAnimationFrame"];
+    window.cancelAnimationFrame = window[c[a] + "CancelAnimationFrame"] || window[c[a] + "CancelRequestAnimationFrame"] } if (!window.requestAnimationFrame) { window.requestAnimationFrame = function (h, e) { var d = new Date().getTime(); var f = Math.max(0, 16 - (d - b)); var g = window.setTimeout(function () { h(d + f) }, f); b = d + f; return g } } if (!window.cancelAnimationFrame) { window.cancelAnimationFrame = function (d) { clearTimeout(d) } } }());
 
         var Point = (function () {
             function Point(x, y) {
